@@ -6,7 +6,6 @@ import Favorites from '../favorites/favorites';
 import Room from '../offer/offer';
 import NotFoundPage from '../not-found-page/not-found-page';
 import PrivateRoute from '../private-route/private-route';
-//import { hotels } from '../../mocks/offers';
 import { OfferCards } from '../../types/offers';
 
 type AppPlaceCardProps = {
@@ -15,13 +14,13 @@ type AppPlaceCardProps = {
 }
 
 function App({ offersCount, offers }: AppPlaceCardProps): JSX.Element {
-  const [firstOffer] = offers;
+  //const {offers} = offers;
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={AppRoute.Main}
-          element={<Main offersCount={offersCount} offer={firstOffer} />}
+          element={<Main offersCount={offersCount} offers={offers} />}
         />
         <Route
           path={AppRoute.SignIn}

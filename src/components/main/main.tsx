@@ -1,13 +1,12 @@
-//import { hotels } from '../../mocks/offers';
-import PlaceCard from '../place-card/place-card';
-import { OfferCard } from '../../types/offers';
+import { OfferCards } from '../../types/offers';
+import OffersList from '../offers-list/offers-list';
 
 type MainPlaceCardProps = {
   offersCount: number;
-  offer: OfferCard;
+  offers: OfferCards;
 }
 
-function Main({ offersCount, offer }: MainPlaceCardProps): JSX.Element {
+function Main({ offersCount, offers }: MainPlaceCardProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">
@@ -117,11 +116,7 @@ function Main({ offersCount, offer }: MainPlaceCardProps): JSX.Element {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                <PlaceCard offer={offer}/>
-                <PlaceCard offer={offer}/>
-                <PlaceCard offer={offer}/>
-                <PlaceCard offer={offer}/>
-                <PlaceCard offer={offer}/>
+                <OffersList offers={offers}/>
               </div>
             </section>
             <div className="cities__right-section">

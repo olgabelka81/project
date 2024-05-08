@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import { OfferCard } from '../../types/offers';
-//import { hotels } from '../../mocks/offers';
 
 type PlaceCardProps = {
   offer: OfferCard;
+  onUserCard?: (id: number | null) => void;
 }
 
 function PlaceCard (props: PlaceCardProps): JSX.Element {
-  const {offer} = props;
+  const {offer, onUserCard} = props;
   const {
+    id,
     isPremium,
     previewImage,
     price,
@@ -17,7 +18,10 @@ function PlaceCard (props: PlaceCardProps): JSX.Element {
   } = offer;
 
   return (
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card"
+      onMouseEnter={() => onUserCard ? onUserCard(id) : undefined}
+      onMouseLeave={() => onUserCard ? onUserCard(null) : undefined}
+    >
       <div className="place-card__mark">
         <span>Premium</span>
       </div>
@@ -59,9 +63,7 @@ function PlaceCard (props: PlaceCardProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="/">
-            {title}
-          </a>
+          <Link to={`offer/${id}`}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
@@ -69,5 +71,4 @@ function PlaceCard (props: PlaceCardProps): JSX.Element {
   );
 }
 
-//PlaceCard();
 export default PlaceCard;

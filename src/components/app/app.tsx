@@ -3,7 +3,7 @@ import Main from '../main/main';
 import { AppRoute, AuthorizationStatus } from '../const/const';
 import LogIn from '../login/login';
 import Favorites from '../favorites/favorites';
-import Room from '../offer/offer';
+import Room from '../room/room';
 import NotFoundPage from '../not-found-page/not-found-page';
 import PrivateRoute from '../private-route/private-route';
 import { OfferCards } from '../../types/offers';
@@ -32,7 +32,7 @@ function App({ offersCount, offers }: AppPlaceCardProps): JSX.Element {
             <PrivateRoute
               authorizationStatus={AuthorizationStatus.NoAuth}
             >
-              <Favorites />
+              <Favorites offers={offers} />
             </PrivateRoute>
           }
         />
